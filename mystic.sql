@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2023 at 05:37 AM
+-- Generation Time: Apr 03, 2023 at 02:06 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -69,7 +69,7 @@ CREATE TABLE `messages` (
 --
 
 CREATE TABLE `movies` (
-  `id` tinyint(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `userId` varchar(255) NOT NULL,
   `link` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `movies` (
 --
 
 CREATE TABLE `music` (
-  `id` tinyint(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `userId` varchar(255) NOT NULL,
   `link` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE `music` (
 --
 
 CREATE TABLE `users` (
-  `id` varchar(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -107,6 +107,14 @@ CREATE TABLE `users` (
   `loginedIn` tinyint(1) DEFAULT NULL,
   `timeStamp` varchar(255) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `profilePicture`, `loginedIn`, `timeStamp`) VALUES
+(1, 'admin', '$2y$10$YhOvW0xjUPwp6RxRFvit/.cNO/CeBHDLZ9U1k48JiVZsqx5sQ60Ke', 'thabangsoulo@gmail.com', NULL, NULL, '2023-04-02 22:16:16'),
+(2, 'james', '$2y$10$7IgMP7jrJjnpqPPdLUfiU.F3Xj2ccPg9Uddh5DZ1zUiu4Gh92xqqi', 'james@gmail.com', NULL, NULL, '2023-04-03 00:32:54');
 
 --
 -- Indexes for dumped tables
@@ -176,13 +184,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` tinyint(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `music`
 --
 ALTER TABLE `music`
-  MODIFY `id` tinyint(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
