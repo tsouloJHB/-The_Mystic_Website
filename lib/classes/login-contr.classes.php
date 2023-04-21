@@ -6,9 +6,9 @@ class LoginContr extends Login{
 
 
 
-    public function __construct($uid,$pwd,){
+    public function __construct($uid,$pwd){
         $this->uid = $uid;
-        $this->pwd = $uid;
+        $this->pwd = $pwd;
 
     }
 
@@ -17,7 +17,7 @@ class LoginContr extends Login{
             header("location: ../../index .php?error=emptyinput");
             exit(); 
         }
-    
+        
         $this->getUser($this->uid,$this->pwd);
     }   
 

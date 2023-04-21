@@ -9,8 +9,8 @@ class SignupContr extends Signup{
 
     public function __construct($uid,$pwd,$pwdRepeat,$email){
         $this->uid = $uid;
-        $this->pwd = $uid;
-        $this->pwdRepeat = $uid;
+        $this->pwd = $pwd;
+        $this->pwdRepeat = $pwd;
         $this->email = $email;
     }
 

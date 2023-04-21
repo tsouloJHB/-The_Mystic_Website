@@ -1,6 +1,8 @@
 <?php include("../layouts/header.php"); ?>
-<link rel="stylesheet" href="../../css/style.css">
+<
+<link rel="stylesheet" type="text/css" href="../../style.css">
 
+<body>
 <div class="container">
     <div class="card login-card">
     <div class="card-header">
@@ -37,5 +39,6 @@
         </div>
     </div>
 </div>
+</body>
 
 <?php include("../layouts/footer.php"); ?>
