@@ -1,4 +1,10 @@
-<?php include("../layouts/header.php"); ?>
+<?php 
+
+include_once '../includes/session.inc.php';
+session::checkLogin();
+include("../layouts/header.php");
+
+?>
 <link rel="stylesheet" type="text/css" href="../../style.css">
 <body>
 <div class="container">

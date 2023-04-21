@@ -15,11 +15,12 @@ include("lib/layouts/header.php"); ?>
         <a href="#">HOME</a>
         <a href="#">Games</a>
         <a href="#">Music</a>
+        
         <a href="#"></a>
         <?php
           if(isset($_SESSION["userid"])){
         ?>
-     
+        <a href="./lib/views/forums.php">Forums</a>
         <a href="./lib/includes/logout.inc.php">log out</a>  
       
         <?php
