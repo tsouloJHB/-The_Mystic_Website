@@ -45,6 +45,34 @@ include("../classes/topic-controller.php");
         $topic_id = $topic_data['id'];
         echo '<p> '.'<a href=forums.php?forum='.$t_name.'&topic='.$topic_id.'>'. $topic_data['name'] . '</a></p>';
     }
+    if(!isset($_GET['topic'])){
+        ?>
+             <div class="col-md-8 col-md-offset-2">
+	        
+    		<p>Create topic</p>
+    		
+    		<form action="" method="POST">
+    		    
+    		  
+    		    
+    		    <div class="form-group">
+    		        <label for="description">Description</label>
+    		        <textarea rows="5" class="form-control" name="desc" ></textarea>
+    		    </div>
+    		    
+    	
+    		    
+    		    <div class="form-group">
+    		        <button type="submit" class="btn btn-primary" name="submit-topic">
+    		            Create
+    		        </button>
+    		    
+    		    </div>
+    		    
+    		</form>
+		</div>
+        <?php
+    }
     if(isset($_GET['topic'])){
         foreach($posts as $post){
             echo '<p> '.$post['username'].'</p>';
