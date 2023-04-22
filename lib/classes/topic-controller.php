@@ -1,5 +1,5 @@
 <?php
-    include "../classes/dbclasses.php";
+    include_once "../classes/dbclasses.php";
     include "../classes/users.contr.php";   
 class Topic  extends Dbh{
 

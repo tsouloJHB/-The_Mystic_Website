@@ -1,11 +1,29 @@
 <?php
+// session_start();
+require_once "../classes/forum.contr.php";
+require_once "../classes/post-contr.php";
 
-include "../classes/post-contr.php";
-if($_POST['submit-topic']){
-    $pwd = $_POST['desc'];
+if(isset($_POST['submit'])){
+    $desc = $_POST['desc'];
+    $forum_name = $_POST['forum'];
     //create post from user 
     $post = new Post();
-    $post->createTopic($desc,$_SESSION['user_id']);
+     //get forum id
+    $forum_obj = new Forum();
+    $forum_id = $forum_obj->getForumIdByName($forum_name);
+
+   
+    $post->createTopic($desc,$forum_id,$_SESSION['userid']);
+    //header("location: ./forum.php?");
+    //exit(); 
 }
+
+function writeMsg($desc) {
+    //$desc = $_POST['desc'];
+    //create post from user 
+    $post = new Post();
+    $post->createTopic($desc,$_SESSION['userid']);
+}
+
 
 ?>

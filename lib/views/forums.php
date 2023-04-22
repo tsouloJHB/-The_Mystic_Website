@@ -2,9 +2,11 @@
 
 include_once '../includes/session.inc.php';
 session::checkSession();
-include("../layouts/header.php");
-include("../classes/topic-controller.php");
+include_once("../layouts/header.php");
+require_once '../includes/post.inc.php';
+require_once "../classes/topic-controller.php";
 
+   
   
     $topic = new Topic(); 
     $topics = [];
@@ -28,6 +30,11 @@ include("../classes/topic-controller.php");
        
     }
 
+    //form submits
+    // if(isset($_POST['submit'])){
+
+    // }
+
 ?>
 <link rel="stylesheet" type="text/css" href="../../style.css">
 <body>
@@ -39,6 +46,9 @@ include("../classes/topic-controller.php");
 
     <h3><?= (isset($_GET['forum'])) ?$_GET['forum'] :"Games"?></h3>
     <?php
+    if(isset($_GET['forum'])){
+
+    
     $t_name = $_GET['forum'];
     
     foreach($topics as $topic_data){
@@ -51,22 +61,21 @@ include("../classes/topic-controller.php");
 	        
     		<p>Create topic</p>
     		
-    		<form action="" method="POST">
+    		<form action="<?=  $_SERVER['REQUEST_URI']; ?>" method="POST">
     		    
     		  
-    		    
+
     		    <div class="form-group">
     		        <label for="description">Description</label>
     		        <textarea rows="5" class="form-control" name="desc" ></textarea>
+                    
     		    </div>
-    		    
+    		    <input type="hidden"  name="forum" value="<?= $_GET['forum'] ?>"/>
     	
     		    
     		    <div class="form-group">
-    		        <button type="submit" class="btn btn-primary" name="submit-topic">
-    		            Create
-    		        </button>
-    		    
+    		        <input type="submit" class="btn btn-primary" name="submit" value="submit">
+    		        
     		    </div>
     		    
     		</form>
@@ -80,7 +89,7 @@ include("../classes/topic-controller.php");
             echo '<p> '.$post['timeStamp'].'</p>';
         }
     }
-
+    }
     ?>
 </body>
 <?php include("../layouts/footer.php"); ?>
