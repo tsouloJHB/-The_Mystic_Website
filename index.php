@@ -1,6 +1,14 @@
 <?php 
 session_start();
-include("lib/layouts/header.php"); ?>
+include("lib/layouts/header.php"); 
+include_once "lib/classes/media-contr.php";
+
+//get movies
+$media = new Media();
+$movies = $media->getAllMovies();
+$games = $media->getAllGames();
+
+?>
 
 <body>
 <!-- <div class="home-content">
@@ -36,8 +44,8 @@ include("lib/layouts/header.php"); ?>
        </nav>
     </div>
 </div> -->
-
-<nav class="navbar">
+<?php  include "lib/layouts/navbar.php"; ?>
+<!-- <nav class="navbar">
 
       <ul class="nav-links">
            
@@ -51,7 +59,7 @@ include("lib/layouts/header.php"); ?>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-</nav>
+</nav> -->
 <header class="hero-section">
         <div class="hero-image">
             <img src="images/download.jpeg" alt="Hero Image">
@@ -65,45 +73,68 @@ include("lib/layouts/header.php"); ?>
 
     <section id="products">
         <!-- Content of the Products section goes here -->
+
+      <section class="movies-section">
+        <h2 class="section-title">Popular Movies</h2>
+        <div class="movies-container">
+            <div class="movies-row">
+            <?php
+
+                //get games
+                foreach($games as $game){
+                  $desc = $game['description'];
+                  if (strlen($game['description']) > 20) {
+                    $desc = substr($game['description'], 0, 20) . "...";
+                  } 
+                  echo " <div class='movie-item'>
+                            <div class='movie-image-container'>
+                            <img src='".$game['thumbnail']."' alt='Movie 1' class='movie-image'>
+                            </div>
+                            <div class='movie-details'>
+                            <h3 class='movie-title'>".$game['name']."</h3>
+                            <p class='movie-description'>$desc</p>
+                            </div>
+                          </div>    
+                  ";
+                }
+            ?>    
+              <!-- Add more movie items as needed -->
+            </div>
+        <!-- Add more movies rows as needed -->
+      </div>
+    </section>
         <section class="movies-section">
   <h2 class="section-title">Popular Movies</h2>
   <div class="movies-container">
     <div class="movies-row">
-      <div class="movie-item">
-        <img src="images/avatar.jpeg" alt="Movie 1" class="movie-image">
-        <div class="movie-details">
-          <h3 class="movie-title">Movie Title 1</h3>
-          <p class="movie-description">Short description about Movie 1</p>
-        </div>
-      </div>
-      <div class="movie-item">
-        <img src="movie2.jpg" alt="Movie 2" class="movie-image">
-        <div class="movie-details">
-          <h3 class="movie-title">Movie Title 2</h3>
-          <p class="movie-description">Short description about Movie 2</p>
-        </div>
-      </div>
+      <?php
+
+         
+          //get movies
+          foreach($movies as $movie){
+            $desc = $movie['description'];
+            if (strlen($movie['description']) > 20) {
+              $desc = substr($movie['description'], 0, 20) . "...";
+            } 
+            echo " <div class='movie-item'>
+                      <div class='movie-image-container'>
+                      <img src='".$movie['thumbnail']."' alt='Movie 1' class='movie-image'>
+                      </div>
+                      <div class='movie-details'>
+                      <h3 class='movie-title'>".$movie['name']."</h3>
+                      <p class='movie-description'>$desc</p>
+               
+                      </div>
+                    </div>    
+            ";
+          }
+      ?>
       <!-- Add more movie items as needed -->
     </div>
-    <div class="movies-row">
-      <div class="movie-item">
-        <img src="movie3.jpg" alt="Movie 3" class="movie-image">
-        <div class="movie-details">
-          <h3 class="movie-title">Movie Title 3</h3>
-          <p class="movie-description">Short description about Movie 3</p>
-        </div>
-      </div>
-      <div class="movie-item">
-        <img src="movie4.jpg" alt="Movie 4" class="movie-image">
-        <div class="movie-details">
-          <h3 class="movie-title">Movie Title 4</h3>
-          <p class="movie-description">Short description about Movie 4</p>
-        </div>
-      </div>
-      <!-- Add more movie items as needed -->
-    </div>
+    <!-- Add more movies rows as needed -->
   </div>
 </section>
+
 
     </section>
 

@@ -1,5 +1,6 @@
 <?php
 //the module
+require_once 'dbclasses.php';
  class Login extends Dbh{
 
     
