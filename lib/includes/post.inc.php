@@ -18,6 +18,20 @@ if(isset($_POST['submit'])){
     //exit(); 
 }
 
+if(isset($_POST['submit-comment'])){    
+    $forum_name = $_POST['forum'];
+    $topic_id = $_POST['topicId'];
+    $message = $_POST['message'];
+
+    $post = new Post();
+    //get forum id
+
+    $forum_obj = new Forum();
+    $forum_id = $forum_obj->getForumIdByName($forum_name);
+
+    $post->createComment($_SESSION['userid'],$topic_id,$forum_id,$message);
+}
+
 function writeMsg($desc) {
     //$desc = $_POST['desc'];
     //create post from user 

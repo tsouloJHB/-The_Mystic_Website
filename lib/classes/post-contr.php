@@ -20,6 +20,19 @@ class Post extends Dbh{
         }
     }
 
+    public function createComment($user_id,$topic_id,$forum_id,$message){
+        $stmt = $this->connect()->prepare("INSERT INTO posts (userId,topicId,forum,message) VALUES (?, ?,?,?)");
+    
+        if(!$stmt->execute(array($user_id,$topic_id,$forum_id,$message))){
+            $stmt = null;
+            return false;   
+        }else{
+            // echo "true";
+            // exit();
+            return true;  
+        }
+    }
+
 }
 
 ?>

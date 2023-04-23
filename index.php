@@ -13,7 +13,7 @@ include("lib/layouts/header.php"); ?>
         <br>
         <nav>
         <a href="#">HOME</a>
-        <a href="#">Games</a>
+        <a href="./lib/views/games.php">Games</a>
         <a href="#">Music</a>
         
         <a href="#"></a>
