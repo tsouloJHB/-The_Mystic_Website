@@ -56,6 +56,6 @@ For any questions, comments, or suggestions, please contact Thabang at thabangso
 ## Screenshots
 ![Alt text](https://github.com/tsouloJHB/The-Mystic-Website/blob/main/screen1.png)
 ![Alt text](https://github.com/tsouloJHB/The-Mystic-Website/blob/main/screen2.png)
-![Alt text](https://github.com/tsouloJHB/The-Mystic-Website/blob/main/screen3.png)
+![Alt text](https://github.com/tsouloJHB/The-Mystic-Website/blob/main/screeen3.png)
 
 
