@@ -23,7 +23,7 @@ This is a web application built using PHP, MySQL, and XAMPP stack for media down
 3. Start the Apache and MySQL servers from the XAMPP control panel.
 4. Open your web browser and navigate to the localhost URL (e.g., `http://localhost`).
 5. Create a new MySQL database using phpMyAdmin or any other MySQL client of your choice.
-6. Import the SQL dump file provided with the source code into the newly created database to create the required tables.
+6. Import the SQL dump file provided with the source code https://github.com/tsouloJHB/The-Mystic-Website/blob/main/mystic.sql into the newly created database to create the required tables.
 7. Copy the source code files into the `htdocs` directory of your XAMPP installation (or the corresponding directory of your web server software).
 8. Open the `/lib/classes/dbclasses.php` file update the database connection details (hostname, username, password, and database name) according to your local MySQL setup.
 9. Open a new web browser window and navigate to the URL of the web application (e.g., `http://localhost/The-Mystic-Website
