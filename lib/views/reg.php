@@ -1,8 +1,10 @@
 <?php include("../layouts/header.php"); ?>
-<
+
 <link rel="stylesheet" type="text/css" href="../../style.css">
 
 <body>
+<?php  include "../layouts/navbar.php"; ?>
+<?php  include "../layouts/hero.php"; ?>
 <div class="container">
     <div class="card login-card">
     <div class="card-header">

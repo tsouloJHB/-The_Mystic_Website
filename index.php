@@ -75,7 +75,7 @@ $games = $media->getAllGames();
         <!-- Content of the Products section goes here -->
 
       <section class="movies-section">
-        <h2 class="section-title">Popular Movies</h2>
+        <h2 class="section-title">Popular Games</h2>
         <div class="movies-container">
             <div class="movies-row">
             <?php
@@ -88,7 +88,9 @@ $games = $media->getAllGames();
                   } 
                   echo " <div class='movie-item'>
                             <div class='movie-image-container'>
+                            <a href='./lib/views/mediadetails.php?type=games&typeid=".$game['id']."'>
                             <img src='".$game['thumbnail']."' alt='Movie 1' class='movie-image'>
+                            </>
                             </div>
                             <div class='movie-details'>
                             <h3 class='movie-title'>".$game['name']."</h3>
@@ -118,7 +120,9 @@ $games = $media->getAllGames();
             } 
             echo " <div class='movie-item'>
                       <div class='movie-image-container'>
+                      <a href='./lib/views/mediadetails.php?type=movies&typeid=".$movie['id']."'>
                       <img src='".$movie['thumbnail']."' alt='Movie 1' class='movie-image'>
+                      </a>
                       </div>
                       <div class='movie-details'>
                       <h3 class='movie-title'>".$movie['name']."</h3>

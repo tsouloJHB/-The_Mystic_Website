@@ -42,14 +42,26 @@ require_once "../classes/forum.contr.php";
 ?>
 <link rel="stylesheet" type="text/css" href="../../style.css">
 <body>
-    <ul>
-        <li><a href="forums.php?forum=games">Games</a></li>
+<?php  include "../layouts/navbar.php"; ?>
+<?php  include "../layouts/hero.php"; ?>
+    <!-- <ul>
+        
+    </ul> -->
+    <div class="row">
+  <div class="column">
+  <div class="topics">
+      <h2>Forums</h2>
+      <ul>
+      <li><a href="forums.php?forum=games">Games</a></li>
         <li><a href="forums.php?forum=music">Music</a></li>
         <li>music</li>
-    </ul>
-
-    <h3><?= (isset($_GET['forum'])) ?$_GET['forum'] :"Games"?></h3>
-    <?php
+      </ul>
+    </div>
+  </div>
+  <div class="column">
+  <div class="topics">
+      <h2>Topics</h2>
+      <?php
     if(isset($_GET['forum'])){
 
     
@@ -132,5 +144,10 @@ require_once "../classes/forum.contr.php";
     }
     }
     ?>
+    </div>
+  </div>
+</div>
+    
+  
 </body>
 <?php include("../layouts/footer.php"); ?>
