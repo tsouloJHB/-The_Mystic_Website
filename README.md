@@ -1,9 +1,12 @@
-Mystic  Media Download and Chat Application
+#Mystic  Media Download and Chat Application
+
 This is a web application built using PHP, MySQL, and XAMPP stack for media downloading and chatting with other users. Users can download media files, such as games, movies, and music, as well as communicate with other users through a chat feature.
 
 Features
 User registration: Users can register for an account to access the media download and chat features.
+
 Media download: Registered users can download media files, such as images, videos, and documents, from the website.
+
 Chat functionality: Registered users can send and receive messages in real-time with other registered users through the chat feature.
 User authentication: User accounts are secured with password hashing and authentication to ensure data privacy and security.
 Database management: The application uses MySQL database to store user information, media files, and chat messages.
