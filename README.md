@@ -32,11 +32,12 @@ This is a web application built using PHP, MySQL, and XAMPP stack for media down
 
 ## Usage
 
-- Register a new user account with a valid email address and password.
+- Register a new user account with a email address and password.
 - Log in with your registered email address and password.
 - Browse and download media files from the website.
 - Send and receive real-time chat messages with other registered users.
 - Log out from your account when done using the application.
+- To access admin account login using : username: admin password : 123456 
 
 ## Contributing
 
