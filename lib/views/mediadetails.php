@@ -93,5 +93,4 @@ if(isset($_GET['type']) && isset($_GET['typeid'])){
 </body>
 
 
-<h3>Hi</h3>
 <?php include("../layouts/footer.php"); ?>

@@ -66,8 +66,8 @@ $games = $media->getAllGames();
         </div>
         <div class="hero-content">
             <h1 class="hero-title">Games - movies - music</h1>
-            <p class="hero-subtitle">Download upload and chat</p>
-            <a href="#products" class="cta-button">Explore Now</a>
+            <p class="hero-subtitle">Download, upload and chat</p>
+            <a href="#middle" class="cta-button">Explore Now</a>
         </div>
     </header>
 
@@ -106,7 +106,7 @@ $games = $media->getAllGames();
       </div>
     </section>
         <section class="movies-section">
-  <h2 class="section-title">Popular Movies</h2>
+  <h2 id="middle" class="section-title">Popular Movies</h2>
   <div class="movies-container">
     <div class="movies-row">
       <?php
