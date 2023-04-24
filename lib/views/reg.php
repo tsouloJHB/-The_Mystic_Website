@@ -26,7 +26,7 @@
                 <input type="text" name="uid" id="" class="form-control form-input">
 
                 <p class="card-text">Email : </p>
-                <input type="email" name="email" id="" class="form-control form-text">
+                <input type="email" name="email" id="" class="form-control form-input">
 
                 <p class="card-text">Password : </p>
                 <input type="password" name="pwd" id="" class="form-control form-input">

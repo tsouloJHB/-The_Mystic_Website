@@ -1,48 +1,57 @@
 <?php
-include_once("../layouts/header.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if file was uploaded without errors
-    if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
-        $targetDirectory = "../../uploads/games"; // Specify target directory where files will be uploaded
-        $targetFile = $targetDirectory . basename($_FILES["file"]["name"]); // Specify target file path
-        $allowedExtensions = array("zip", "rar"); // Specify allowed file extensions
-        
-        // Get the file extension
-        $fileExtension = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        
-        // Check if file extension is allowed
-        if (in_array($fileExtension, $allowedExtensions)) {
-            // Check if file already exists
-            if (file_exists($targetFile)) {
-                echo "File already exists. Please choose a different file.";
-            } else {
-                // Upload the file to the target directory
-                if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
-                    echo "File uploaded successfully.";
-                } else {
-                    echo "Error uploading file. Please try again.";
-                }
-            }
-        } else {
-            echo "Only ZIP and RAR files are allowed.";
-        }
-    } else {
-        echo "Error uploading file. Please try again.";
-    }
-}
+include_once '../includes/session.inc.php';
+
+include_once("../layouts/header.php");
+include_once "../classes/media-contr.php";
+
+//get movies
+$media = new Media();
+
+$games = $media->getAllGames();
 
 ?>
-
-
+<link rel="stylesheet" type="text/css" href="../../style.css">
 <body>
-    <h2>File Upload Form</h2>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
-    </form>
-    <a href="uploads\gamesThe Mystic Website_041542.rar" download>link_text</a>
+<?php  include "../layouts/navbar.php"; ?>
+<?php  include "../layouts/hero.php"; ?>
+   
+
+<section id="products">
+        <!-- Content of the Products section goes here -->
+
+      <section class="movies-section">
+       <div class="header-section"><p>Games</p></div>
+        <div class="movies-container">
+            <div class="movies-row">
+            <?php
+
+                //get games
+                foreach($games as $game){
+                  $desc = $game['description'];
+                  if (strlen($game['description']) > 20) {
+                    $desc = substr($game['description'], 0, 20) . "...";
+                  } 
+                  echo " <div class='movie-item'>
+                            <div class='movie-image-container'>
+                            <a href='../views/mediadetails.php?type=games&typeid=".$game['id']."'>
+                            <img src='../../".$game['thumbnail']."' alt='Movie 1' class='movie-image'>
+                            </>
+                            </div>
+                            <div class='movie-details'>
+                            <h3 class='movie-title'>".$game['name']."</h3>
+                            <p class='movie-description'>$desc</p>
+                            </div>
+                          </div>    
+                  ";
+                }
+            ?>    
+              <!-- Add more movie items as needed -->
+            </div>
+        <!-- Add more movies rows as needed -->
+      </div>
+    </section>
+    
+  
 </body>
-
-
 <?php include("../layouts/footer.php"); ?>

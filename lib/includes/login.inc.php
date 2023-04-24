@@ -17,6 +17,13 @@
         $login = new LoginContr($uid,$pwd);
         //running error handlers and user signup
         $login->loginUser();
+
+       
+ 
+        if(isset( $_SESSION["admin"])){
+            header("location: ../views/admin.php");
+            exit();
+        }
         //going back to front page
         header("location: ../../index.php?error=none");
     }

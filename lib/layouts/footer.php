@@ -1,8 +1,6 @@
 <?php include("header.php"); ?>
 <link rel="stylesheet" href="../../css/style.css">
 
-<div class="footer">
-    <div class="container">
-        <div class="content"> - The mystic site</div>
-    </div>
-</div>
+<footer class="footer">
+    <p class="footer-text">Mystic &copy <?= date("Y"); ?></p>
+  </footer>

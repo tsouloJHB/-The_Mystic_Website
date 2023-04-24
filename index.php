@@ -142,5 +142,5 @@ $games = $media->getAllGames();
 
     </section>
 
-<h3>Hi</h3>
+
 <?php include("lib/layouts/footer.php"); ?>

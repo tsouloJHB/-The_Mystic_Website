@@ -32,6 +32,12 @@ require_once 'dbclasses.php';
         }elseif($checkPwd){
     
             session_start();
+      
+            if($userData[0]['admin'] == 1){
+             
+                $_SESSION["admin"] = true;
+            }
+         
             $_SESSION["userid"] = $userData[0]["id"];
             $_SESSION["username"] = $userData[0]["username"];
             $stmt = null;

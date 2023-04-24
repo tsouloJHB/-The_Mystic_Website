@@ -65,7 +65,8 @@ require_once "../classes/forum.contr.php";
   </div>
   <div class="column">
   <div class="topics">
-      <h3>Topics</h3>
+      <?= isset($_GET['topic']) ? '<p>Messages</p>' : '<h3>Topics</h3>' ?>
+      
       <div class="content">
       <?php
     if(isset($_GET['forum'])){
@@ -77,7 +78,7 @@ require_once "../classes/forum.contr.php";
         $topic_id = $topic_data['id'];
         if(isset($_GET['topic'])){
             if($topic_id == $_GET['topic']){
-                echo '<p class="topic"> '.'<a href=forums.php?forum='.$t_name.'&topic='.$topic_id.'>'. $topic_data['name'] . '<span class="add-button "> </span> </a> </p>';  
+                echo '<p class="topic"> '.'<a href=forums.php?forum='.$t_name.'&topic='.$topic_id.'>'. $topic_data['name'] . ' </a> </p>';  
             }
           
         }else{
@@ -132,11 +133,12 @@ require_once "../classes/forum.contr.php";
             echo '
             <div class="comment-details">
                 <div class="user-info">
-                 <h3> '.$post['username'].'</h3>
+                 <p> '.$post['username'].'</p>
+                 <p > '.$post['message'].'</p>
                  <span> '.$post['timeStamp'].'</span>
                 </div>
                 <div class="comment-text">
-                    <p  '.$post['message'].'</p>
+                   
                 </div>
             </div>
             </div>    

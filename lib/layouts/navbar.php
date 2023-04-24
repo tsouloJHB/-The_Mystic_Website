@@ -27,10 +27,8 @@ if($host == 'localhost'){
         </div>
         <ul class="nav-links">
            
-            <li><a href="#about">Games</a></li>
-            <li><a href="#about">Movies</a></li>
-            <li><a href="#about">Games</a></li>
-           
+            <li><a href="<?=$url?>/lib/views/games.php">Games</a></li>
+            <li><a href="<?=$url?>/lib/views/movies.php">Movies</a></li>  
             <?= isset($_SESSION['userid']) ? '<li><a href="'.$url.'/lib/views/forums.php'.'">Forums</a></li> ':' ' ?>
             <?= isset($_SESSION['userid']) ? '<li><a href="'.$url.'/lib/includes/logout.inc.php">log out</a></li>  ':'  <li><a href="'.$url.'/lib/views/login.php'.'">login</a></li>' ?>
             <?= isset($_SESSION['userid']) ? ' ':' <li><a href="'.$url.'/lib/views/reg.php'.'">Sign up</a></li>' ?>
