@@ -50,17 +50,23 @@ require_once "../classes/forum.contr.php";
     <div class="row">
   <div class="column">
   <div class="topics">
-      <h2>Forums</h2>
+      <p>Forums</p>
       <ul>
-      <li><a href="forums.php?forum=games">Games</a></li>
-        <li><a href="forums.php?forum=music">Music</a></li>
-        <li>music</li>
+        <?= isset($_GET['forum']) && $_GET['forum'] == "games" ? '<li ><a class="active" href="forums.php?forum=games">Games</a></li>':' <li ><a class="a" href="forums.php?forum=games">Games</a></li>' ?>
+       
+        <hr>
+        
+        <?= isset($_GET['forum']) && $_GET['forum'] == "music" ? '<li ><a class="active" href="forums.php?forum=music">Music</a></li>':' <li ><a class="a" href="forums.php?forum=music">Music</a></li>' ?>
+        <hr>
+        
+        <?= isset($_GET['forum']) && $_GET['forum'] == "movies" ? '<li ><a class="active" href="forums.php?forum=movies">Movies</a></li>':' <li ><a class="a" href="forums.php?forum=movies">Movies</a></li>' ?>
       </ul>
     </div>
   </div>
   <div class="column">
   <div class="topics">
-      <h2>Topics</h2>
+      <h3>Topics</h3>
+      <div class="content">
       <?php
     if(isset($_GET['forum'])){
 
@@ -71,27 +77,28 @@ require_once "../classes/forum.contr.php";
         $topic_id = $topic_data['id'];
         if(isset($_GET['topic'])){
             if($topic_id == $_GET['topic']){
-                echo '<p> '.'<a href=forums.php?forum='.$t_name.'&topic='.$topic_id.'>'. $topic_data['name'] . '</a></p>';  
+                echo '<p class="topic"> '.'<a href=forums.php?forum='.$t_name.'&topic='.$topic_id.'>'. $topic_data['name'] . '<span class="add-button "> </span> </a> </p>';  
             }
           
         }else{
-            echo '<p> '.'<a href=forums.php?forum='.$t_name.'&topic='.$topic_id.'>'. $topic_data['name'] . '</a></p>';
-        }   
-      
+            echo '<p class="topic"> '.'<a href=forums.php?forum='.$t_name.'&topic='.$topic_id.'>'. $topic_data['name'] . '<span class="add-button "> </span></a> </p>';
+        }
+       
+        
     }
 
     if(!isset($_GET['topic'])){
         ?>
              <div class="col-md-8 col-md-offset-2">
 	        
-    		<p>Create topic</p>
     		
-    		<form action="<?=  $_SERVER['REQUEST_URI']; ?>" method="POST">
+    		
+    		<form class="form-post" action="<?=  $_SERVER['REQUEST_URI']; ?>" method="POST">
     		    
     		  
 
     		    <div class="form-group">
-    		        <label for="description">Description</label>
+    		        <label for="description">Create topic</label>
     		        <textarea rows="5" class="form-control" name="desc" ></textarea>
                     
     		    </div>
@@ -105,14 +112,40 @@ require_once "../classes/forum.contr.php";
     		    
     		</form>
 		</div>
+      </div>   
         <?php
     }
+    
     if(isset($_GET['topic']) && $posts != null){
+        echo '<div class="comment-container">';
+        
         foreach($posts as $post){
-            echo '<p> '.$post['username'].'</p>';
-            echo '<p> '.$post['message'].'</p>';
-            echo '<p> '.$post['timeStamp'].'</p>';
+            
+            $image  = $post['profilePicture'] != null ? $post['profilePicture'] : 'uploads/profileImages/profileImage.png';
+           
+            echo '<div class="comment">';
+            echo '
+                <div class="profile-image">
+                    <img src="../../'.$image.'" alt="Profile Image">
+                </div>
+            ';
+            echo '
+            <div class="comment-details">
+                <div class="user-info">
+                 <h3> '.$post['username'].'</h3>
+                 <span> '.$post['timeStamp'].'</span>
+                </div>
+                <div class="comment-text">
+                    <p  '.$post['message'].'</p>
+                </div>
+            </div>
+            </div>    
+            ';
+            //echo '<p> '.$post['username'].'</p>';
+            // echo '<p class="comment-text" '.$post['message'].'</p>';
+            // echo '<p class="comment-timestamp"> '.$post['timeStamp'].'</p></div>';
         }
+        echo '</div>';
       
     }
         //comment on post
@@ -120,7 +153,7 @@ require_once "../classes/forum.contr.php";
         
         ?>
 	
-        <form action="<?=  $_SERVER['REQUEST_URI']; ?>" method="POST">
+        <form class="form-comment" action="<?=  $_SERVER['REQUEST_URI']; ?>" method="POST">
     		    
     		  
 
@@ -144,6 +177,7 @@ require_once "../classes/forum.contr.php";
     }
     }
     ?>
+  </div>
     </div>
   </div>
 </div>

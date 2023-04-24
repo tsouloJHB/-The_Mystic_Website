@@ -60,7 +60,7 @@ class Topic  extends Dbh{
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach($data as $post){
                 $user_data = $this->users->getUser($post["userId"]);
-                $new_array = array("username"=>$user_data[0]['username'],"email"=>$user_data[0]['email']);
+                $new_array = array("username"=>$user_data[0]['username'],"email"=>$user_data[0]['email'],"profilePicture"=>$user_data[0]['profilePicture']);
                 $last = $post + $new_array;
                // array_push($post,$new_array);
                 //$new = array_merge($post,$user_data);

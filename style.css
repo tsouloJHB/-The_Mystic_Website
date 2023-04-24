@@ -28,7 +28,7 @@ background: linear-gradient(90deg, rgba(0,8,32,1) 0%, rgba(0,8,32,1) 100%);
 }
 .card-body #form-error{
   color: red;
- 
+
 }
 
 .navbar {
@@ -273,13 +273,49 @@ background: linear-gradient(90deg, rgba(0,8,32,1) 0%, rgba(0,8,32,1) 100%);
   background-color: #0056b3;
 }
 
-.card-header{
-  color: black;
+/* forums */
+
+
+.row {
+  display: flex;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-top: 40px;
+  gap: 5%;
+}
+.column{
+  grid-gap: 20px;
+}
+
+.column:nth-of-type(1) {flex-grow: 1;}
+.column:nth-of-type(2) {flex-grow: 3;}
+ 
+.column .nav{
+  background-color: antiquewhite;
+  width: 100%;
+
+}
+.column .topics{
+ border: 1px solid #2B2038;
+  width: 100%;
+
+}
+
+.column {
+  float: left;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
 }
 
 /* Responsive styles for one column layout on small screens */
 @media screen and (max-width: 767px) {
-  .container-media {
+  .container {
     flex-direction: column;
   }
 
