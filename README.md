@@ -52,3 +52,6 @@ This project is open-source and available under the [MIT License](LICENSE).
 For any questions, comments, or suggestions, please contact Thabang at thabangsoulo@gmail.com.
 
 **Note: Update Thabang and  thabangsoulo@gmail.com with your actual name and email address respectively.**
+
+## Screenshots
+<img src'https://github.com/tsouloJHB/The-Mystic-Website/blob/main/screen1.png'/>
