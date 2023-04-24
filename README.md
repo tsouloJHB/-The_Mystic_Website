@@ -1,4 +1,4 @@
-# Media Download and Chat Application
+# Mystic (Media Download and Chat Application)
 
 This is a web application built using PHP, MySQL, and XAMPP stack for media downloading and chatting with other users. Users can download media files, such as games, movies, and music, as well as communicate with other users through a chat feature.
 
