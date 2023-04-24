@@ -54,5 +54,5 @@ For any questions, comments, or suggestions, please contact Thabang at thabangso
 **Note: Update Thabang and  thabangsoulo@gmail.com with your actual name and email address respectively.**
 
 ## Screenshots
-![Alt text](<img src'https://github.com/tsouloJHB/The-Mystic-Website/blob/main/screen1.png'/>)
+![Alt text](https://github.com/tsouloJHB/The-Mystic-Website/blob/main/screen1.png)
 
